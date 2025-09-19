@@ -54,7 +54,7 @@ body {
   height: 100vh;
 
   display: flex;
-  align-items: center;
+  align-items: start;
 }
 
 h1 {
@@ -184,6 +184,7 @@ nav {
     height: 85px;
     display: flex;
     align-items: center;
+    border-top: 4px solid transparent;
   }
 
   a {
@@ -198,7 +199,6 @@ nav {
 main {
   display: flex;
   justify-content: center;
-  /* height: 740px; */
   margin-bottom: 87px;
   margin-top: 126px;
 
@@ -216,19 +216,19 @@ main {
 }
 
 main:has(.button-1.active) .overview {
-  display: initial;
+  display: flex;
 }
 
 main:has(.button-2.active) .structure {
-  display: initial;
+  display: flex;
 }
 
 main:has(.button-3.active) .geology {
-  display: initial;
+  display: flex;
 }
 
 main:has(.button-3.active) .overview-img {
-  display: initial;
+  display: flex;
 }
 
 .left-side {
@@ -252,7 +252,6 @@ main:has(.button-3.active) .overview-img {
 }
 
 .right-side {
-  /* padding-top: 126px; */
   display: flex;
   flex-direction: column;
   width: 516px;
@@ -266,7 +265,7 @@ main:has(.button-3.active) .overview-img {
     a {
       font-weight: 700;
       color: var(--white);
-      display: flex;
+      display: none;
       align-items: center;
       gap: 8px;
     }
@@ -287,7 +286,6 @@ main:has(.button-3.active) .overview-img {
   }
 
   .descr {
-    /* display: block; */
     width: 350px;
     margin-bottom: 24px;
   }
