@@ -1,0 +1,321 @@
+.antonio-font {
+  font-family: "Antonio", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.league-spartan-font {
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --white: #ffffff;
+  --mysterious-depth: #070724;
+  --carbon-blue: #38384f;
+  --formal-affair: #838391;
+  --fairy-tale-blue: #419ebb;
+  --golden-koi: #eda249;
+  --hokaido-lavender: #6f2ed6;
+  --dizzy-days: #d14c32;
+  --blood-moon: #d83a34;
+  --rusty-nail: #cd5120;
+  --tealish: #1ec2a4;
+  --retro-blue: #2d68f0;
+  --bleached-silk: #f2f2f2;
+  --planet-color: #ffffff;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+ul,
+p {
+  margin: 0;
+}
+
+body {
+  background-color: var(--bleached-silk);
+  font-family: "League Spartan", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 25px;
+  color: var(--white);
+
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  font-family: "Antonio", sans-serif;
+  font-weight: 500;
+  font-size: 80px;
+  line-height: 103px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+h2 {
+  font-family: "Antonio", sans-serif;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 52px;
+  letter-spacing: -1.5px;
+}
+
+h3 {
+  font-family: "League Spartan", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 25px;
+  letter-spacing: 2.6px;
+}
+
+h4 {
+  font-family: "League Spartan", sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 25px;
+  letter-spacing: 1px;
+}
+
+.button {
+  display: inline-block;
+  width: 350px;
+  height: 48px;
+  position: relative;
+  text-transform: uppercase;
+  font-family: "League Spartan", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 25px;
+  letter-spacing: 2.6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  padding: 12px 0px 12px 74px;
+  text-align: left;
+  background-color: transparent;
+}
+
+.button:hover {
+  background-color: var(--formal-affair);
+}
+
+.button.active {
+  background-color: var(--planet-color);
+}
+
+.button::before {
+  position: absolute;
+  display: block;
+  width: 18px;
+  height: 25px;
+  top: 12px;
+  left: 28px;
+
+  font-family: "League Spartan", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 25px;
+  letter-spacing: 2.57px;
+}
+
+.button-1::before {
+  content: "01";
+}
+
+.button-2::before {
+  content: "02";
+}
+
+.button-3::before {
+  content: "03";
+}
+
+.container {
+  width: 1440px;
+  background-color: var(--mysterious-depth);
+  background-image: url("./assets/background-stars.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 41px 0 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo {
+  text-transform: uppercase;
+  font-family: "Antonio", sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  letter-spacing: -1.05px;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+}
+
+nav {
+  ul {
+    list-style-type: none;
+    opacity: 75%;
+    display: flex;
+    gap: 33px;
+    text-transform: uppercase;
+  }
+
+  li {
+    height: 85px;
+    display: flex;
+    align-items: center;
+  }
+
+  a {
+    color: var(--white);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-decoration: none;
+  }
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  /* height: 740px; */
+  margin-bottom: 87px;
+  margin-top: 126px;
+
+  .overview {
+    display: none;
+  }
+
+  .structure {
+    display: none;
+  }
+
+  .geology {
+    display: none;
+  }
+}
+
+main:has(.button-1.active) .overview {
+  display: initial;
+}
+
+main:has(.button-2.active) .structure {
+  display: initial;
+}
+
+main:has(.button-3.active) .geology {
+  display: initial;
+}
+
+main:has(.button-3.active) .overview-img {
+  display: initial;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 416px;
+  width: 924px;
+
+  .structure {
+    display: none;
+  }
+
+  .geology {
+    display: none;
+    width: 163px;
+    height: auto;
+    margin-top: -70px;
+  }
+}
+
+.right-side {
+  /* padding-top: 126px; */
+  display: flex;
+  flex-direction: column;
+  width: 516px;
+
+  .src {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 39px;
+    opacity: 50%;
+
+    a {
+      font-weight: 700;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+
+  a::after {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-image: url("./assets/icon-source.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  h1 {
+    margin-bottom: 23px;
+  }
+
+  .descr {
+    /* display: block; */
+    width: 350px;
+    margin-bottom: 24px;
+  }
+
+  .button-set {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+footer {
+  padding-bottom: 56px;
+  ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    list-style-type: none;
+    text-transform: uppercase;
+
+    li {
+      width: 255px;
+      padding: 20px 23px 27px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+
+      h4 {
+        opacity: 0.5;
+      }
+    }
+  }
+}
