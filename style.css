@@ -129,6 +129,8 @@ h4 {
   font-size: 12px;
   line-height: 25px;
   letter-spacing: 2.57px;
+
+  opacity: 50%;
 }
 
 .button-1::before {
@@ -199,8 +201,9 @@ nav {
 main {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 87px;
-  margin-top: 126px;
+  margin-top: 87px;
 
   .overview {
     display: none;
@@ -233,10 +236,11 @@ main:has(.button-3.active) .overview-img {
 
 .left-side {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 416px;
+  height: 582px;
   width: 924px;
 
   .structure {
@@ -245,9 +249,10 @@ main:has(.button-3.active) .overview-img {
 
   .geology {
     display: none;
+    position: absolute;
     width: 163px;
     height: auto;
-    margin-top: -70px;
+    bottom: 10px;
   }
 }
 
@@ -287,6 +292,7 @@ main:has(.button-3.active) .overview-img {
 
   .descr {
     width: 350px;
+    height: 145px;
     margin-bottom: 24px;
   }
 
