@@ -60,6 +60,8 @@ body {
 
   display: flex;
   align-items: start;
+
+  overflow-x: hidden;
 }
 
 h1 {
