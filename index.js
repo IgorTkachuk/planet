@@ -1,12 +1,12 @@
 const planetColorMap = [
-  { name: "Mercury", color: "#419ebb" },
-  { name: "Venus", color: "#eda249" },
-  { name: "Earth", color: "#6f2ed6" },
-  { name: "Mars", color: "#d14c32" },
-  { name: "Jupiter", color: "#d83a34" },
-  { name: "Saturn", color: "#cd5120" },
-  { name: "Uranus", color: "#1ec2a4" },
-  { name: "Neptune", color: "#2d68f0" },
+  { name: "Mercury", color: "#DEF4FC" },
+  { name: "Venus", color: "#F7CC7F" },
+  { name: "Earth", color: "#545BFE" },
+  { name: "Mars", color: "#FF6A45" },
+  { name: "Jupiter", color: "#ECAD7A" },
+  { name: "Saturn", color: "#FCCB6B" },
+  { name: "Uranus", color: "#65F0D5" },
+  { name: "Neptune", color: "#497EFA" },
 ];
 
 let currentPlanet = "Mercury";
@@ -22,7 +22,9 @@ function getPlanetColor(planetName) {
 }
 
 function getPlanetByName(planetName) {
-  return data.find(({name}) => planetName.toUpperCase() === name.toUpperCase())
+  return data.find(
+    ({ name }) => planetName.toUpperCase() === name.toUpperCase()
+  );
 }
 
 async function getData() {
@@ -45,13 +47,18 @@ function makeNav(data) {
     const li = document.createElement("li");
 
     if (name.toUpperCase() === currentPlanet.toUpperCase()) {
-      li.style.borderTop = "4px solid var(--planet-color)";
-      console.log("Pun`k!");
+      li.style.borderColor = "var(--planet-color)";
     }
 
     const a = document.createElement("a");
     a.innerText = name;
     a.setAttribute("href", "#");
+
+    const planetIco = document.createElement("div");
+    planetIco.classList.add("planet-ico");
+    planetIco.style.backgroundColor = getPlanetColor(name);
+    a.insertAdjacentElement("afterbegin", planetIco);
+
     li.appendChild(a);
     ul.appendChild(li);
   });
@@ -62,14 +69,18 @@ function menuHandler({ target }) {
   const a = target.closest("a");
   if (!a) return;
 
-  console.log(a.innerText);
   currentPlanet = a.innerText;
 
-  const nav = document.querySelector("nav")
-  nav.innerHTML = ""
+  const nav = document.querySelector("nav");
+  nav.innerHTML = "";
   nav.appendChild(makeNav(data));
 
-  composePage(getPlanetByName(currentPlanet))
+  composePage(getPlanetByName(currentPlanet));
+
+  const hamburgerTrigger = document.querySelector(
+    ".mobile-menu input[type='checkbox']"
+  );
+  hamburgerTrigger.checked = false;
 }
 
 function btnSetHandler({ target }) {
@@ -89,28 +100,40 @@ function composePage({ name }) {
 
   const planet = getPlanetByName(name);
 
-  document.querySelector("img.overview").setAttribute("src", planet.images.planet)
-  document.querySelector("img.structure").setAttribute("src", planet.images.internal)
-  document.querySelector("img.geology").setAttribute("src", planet.images.geology)
+  document
+    .querySelector("img.overview")
+    .setAttribute("src", planet.images.planet);
+  document
+    .querySelector("img.structure")
+    .setAttribute("src", planet.images.internal);
+  document
+    .querySelector("img.geology")
+    .setAttribute("src", planet.images.geology);
 
   document.querySelector(".right-side h1").innerText = planet.name;
-  document.querySelector('.src a.overview').setAttribute('href', planet.overview.source);
-  document.querySelector(".descr.overview").innerText = planet.overview.content;
-  
-  document.querySelector('.src a.structure').setAttribute('href', planet.structure.source);
-  document.querySelector(".descr.structure").innerText = planet.structure.content;
-  
   document
-    .querySelector('.src a.geology')
-    .setAttribute('href', planet.geology.source);
+    .querySelector(".src a.overview")
+    .setAttribute("href", planet.overview.source);
+  document.querySelector(".descr.overview").innerText = planet.overview.content;
+
+  document
+    .querySelector(".src a.structure")
+    .setAttribute("href", planet.structure.source);
+  document.querySelector(".descr.structure").innerText =
+    planet.structure.content;
+
+  document
+    .querySelector(".src a.geology")
+    .setAttribute("href", planet.geology.source);
   document.querySelector(".descr.geology").innerText = planet.geology.content;
 
-  document.querySelector("footer li:nth-child(1) h2").innerText = planet.rotation;
-  document.querySelector("footer li:nth-child(2) h2").innerText = planet.revolution;
+  document.querySelector("footer li:nth-child(1) h2").innerText =
+    planet.rotation;
+  document.querySelector("footer li:nth-child(2) h2").innerText =
+    planet.revolution;
   document.querySelector("footer li:nth-child(3) h2").innerText = planet.radius;
-  document.querySelector("footer li:nth-child(4) h2").innerText = planet.temperature;
-
-
+  document.querySelector("footer li:nth-child(4) h2").innerText =
+    planet.temperature;
 }
 
 async function main() {
