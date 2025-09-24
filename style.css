@@ -480,7 +480,7 @@ footer {
 
     .left-side {
       height: 256px;
-      width: initial;
+      width: 100%;
       margin-top: 50px;
 
       img {
